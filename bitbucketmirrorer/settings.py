@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -83,7 +84,7 @@ else:
   DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bitbucket_mirrorer_db',
+        'NAME': 'bitbucketmirrorer_db',
         'USER': os.environ['USER'],
         'PASSWORD': '',
         'HOST': 'localhost',

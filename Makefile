@@ -8,6 +8,9 @@ server: create_db activate requirements migrate
 migrate: activate
 	. activate && python manage.py migrate
 
+shell: activate
+	. activate && python manage.py shell
+
 activate: venv
 	@ [ -f activate ] || ln -s venv/bin/activate .
 
@@ -42,7 +45,7 @@ install_postgres:
 			&& sudo mv Postgres.app /Applications/ \
 			&& echo -e "\nexport PATH=\"\$$PATH:/Applications/Postgres.app/Contents/Versions/$(POSTGRES_SHORT_VERSION)/bin\"\n" >> ~/.bash_profile)
 
-DB_NAME = bitbucket_mirrorer_db
+DB_NAME = bitbucketmirrorer_db
 
 create_db: postgres
 	@ [[ $$(psql -tAc "SELECT 1 FROM pg_database WHERE datname='$(DB_NAME)'") == '1' ]] \
@@ -65,4 +68,5 @@ db_shell: postgres
 	postgres \
 	requirements \
 	server \
+	shell \
 	virtualenv
