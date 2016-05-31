@@ -1,6 +1,7 @@
 # Bitbucket Mirrorer
 
 [![Build Status](https://travis-ci.org/wk8/bitbucketmirrorer.svg?branch=master)](https://travis-ci.org/wk8/bitbucketmirrorer)
+[![Dependency Status](https://www.versioneye.com/user/projects/574ce9e36497d90034f1050d/badge.svg)](https://www.versioneye.com/user/projects/574ce9e36497d90034f1050d)
 
 WIP! This is still a work in progress, please check back later :)
 
