@@ -57,6 +57,14 @@ drop_db: postgres
 db_shell: postgres
 	psql $(DB_NAME)
 
+test: activate
+	. activate && python manage.py test
+
+pep8:
+	. activate && pep8 --config=pep8.config .
+
+travis: test pep8
+
 .PHONY: \
 	all \
 	create_db \
@@ -65,8 +73,11 @@ db_shell: postgres
 	freeze \
 	install_postgres \
 	migrate \
+	pep8 \
 	postgres \
 	requirements \
 	server \
 	shell \
+	test \
+	travis \
 	virtualenv
