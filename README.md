@@ -1,5 +1,7 @@
 # Bitbucket Mirrorer
 
+[![Build Status](https://travis-ci.org/wk8/bitbucketmirrorer.svg?branch=master)](https://travis-ci.org/wk8/bitbucketmirrorer)
+
 WIP! This is still a work in progress, please check back later :)
 
 ## Dev env setup
