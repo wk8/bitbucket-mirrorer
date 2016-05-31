@@ -10,12 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os
 import dj_database_url
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -77,20 +76,20 @@ WSGI_APPLICATION = 'bitbucketmirrorer.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
-  # Parse database configuration from $DATABASE_URL
-  DATABASES = { 'default': dj_database_url.config() }
-  DATABASES['default']['ENGINE'] = 'django_postgrespool'
+    # Parse database configuration from $DATABASE_URL
+    DATABASES = {'default': dj_database_url.config()}
+    DATABASES['default']['ENGINE'] = 'django_postgrespool'
 else:
-  DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bitbucketmirrorer_db',
-        'USER': os.environ['USER'],
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'bitbucketmirrorer_db',
+            'USER': os.environ['USER'],
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
     }
-}
 
 
 # Password validation
