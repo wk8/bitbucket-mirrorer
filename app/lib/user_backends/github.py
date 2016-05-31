@@ -1,21 +1,19 @@
-import base
+from __future__ import absolute_import
+
+import github
+
+from .base import UserBackend
 
 
-class GithubUserBackend(base.UserBackend):
+class GithubUserBackend(UserBackend):
 
     def url(self):
         return 'https://github.com/%s' % (self.user.name, )
 
     def are_creds_valid(self):
-        '''
-        Should return true iff the credentials are valid
-        '''
-        raise NotImplementedError
-
-    @classmethod
-    def all_backends(cls):
-        '''
-        Returns a list of all available backends
-        '''
-        # TODO wkpo
-        pass
+        client = github.Github(self.user.name, self.user.password)
+        try:
+            client.get_user().login
+            return True
+        except github.BadCredentialsException:
+            return False
