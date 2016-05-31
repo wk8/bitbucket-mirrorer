@@ -11,9 +11,14 @@ class GithubUserBackend(UserBackend):
         return 'https://github.com/%s' % (self.user.name, )
 
     def are_creds_valid(self):
-        client = github.Github(self.user.name, self.user.password)
         try:
-            client.get_user().login
+            self._github_user().login
             return True
         except github.BadCredentialsException:
             return False
+
+    def _github_user(self):
+        return self._client().get_user()
+
+    def _client(self):
+        return github.Github(self.user.name, self.user.password)
